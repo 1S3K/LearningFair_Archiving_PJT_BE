@@ -7,8 +7,7 @@ class User(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=30, null=False) # 프로젝트 제목
-    campus = models.IntegerField(null=False) # 캠퍼스
-    lecture = models.IntegerField(null=False) # 분반
+    lecture = models.CharField(max_length=3, null=False) # 분반
     group = models.IntegerField(null=False) # 분반 내 각 팀
     groupName = models.CharField(max_length=30, null=False)
     members = models.CharField(max_length=100, null=False) # 프로젝트 멤버
