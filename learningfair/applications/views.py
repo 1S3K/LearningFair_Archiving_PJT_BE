@@ -11,6 +11,7 @@ def test(req):
     return HttpResponse(project_list, content_type="text/json")
 
 
+# /hotprojcets
 def hotprojects(req):
     # db에서 찾기
     data = {
@@ -56,7 +57,9 @@ def hotprojects(req):
     }
     return JsonResponse(data)
 
-def classes(req):
+# /classes/02/projects
+def lectures(req):
+    #req.GET['lecture']
     pass
 
 def projects(req):
