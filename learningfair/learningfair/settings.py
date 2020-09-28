@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'applications.apps.ApplicationsConfig'
+    'applications.apps.ApplicationsConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +121,23 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# .env
+env = environ.Env()
+environ.Env.read_env()
+
+# AWS S3
+AWS_ACCESS_KEY_ID = env('ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('ACCESS_SECRET_KEY')
+AWS_REGION = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = env('BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME,AWS_REGION)
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1024000000 # value in bytes 1GB here
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1024000000
+
+DEFAULT_FILE_STORAGE = 'applications.storages.S3DefaultStorage'
+STATICFILES_STORAGE = 'applications.storages.S3StaticStorage'
