@@ -10,7 +10,7 @@ class Project(models.Model):
     lecture = models.CharField(max_length=3, null=False) # 분반
     group = models.IntegerField(null=False) # 분반 내 각 팀
     groupName = models.CharField(max_length=30, null=False)
-    members = models.CharField(max_length=100, null=False) # 프로젝트 멤버
+    members = models.TextField( null=False) # 프로젝트 멤버 (과 + 이름 + \n)
     description = models.TextField(null=False)  # 프로젝트 설명
     pdf = models.TextField()    # PDF 파일 경로
     # pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
