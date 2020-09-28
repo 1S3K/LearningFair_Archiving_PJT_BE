@@ -10,7 +10,6 @@ def test(req):
     project_list = serializers.serialize('json', projects)
     return HttpResponse(project_list, content_type="text/json")
 
-
 # /hotprojcets
 def hotprojects(req):
     # db에서 찾기
