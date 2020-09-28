@@ -74,10 +74,9 @@ def lectures(req, lecture_id):
 # 프로젝트 전체에서 '머신러닝' 검색결과 조회
 def projects(req):
     searchBy = req.GET.get('searchBy')
-    data = {
-        'searchBy':searchBy
-    }
-    return JsonResponse(data)
+    projects = Project.objects.filter(title__contains=searchBy)
+    project_list = serializers.serialize('json', projects)
+    return HttpResponse(project_list, content_type="text/json")
 
 # GET /notices
 # 공지사항 조회
