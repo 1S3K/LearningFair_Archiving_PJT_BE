@@ -4,8 +4,6 @@ from django.http import JsonResponse, HttpResponse
 from datetime import date
 from .models import Project, Notice, Like
 
-
-
 insa = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13']
 jagwa = ['41', '42', '43', '44']
 icam = ['i1', 'i2']

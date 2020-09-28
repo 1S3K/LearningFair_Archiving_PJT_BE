@@ -12,10 +12,8 @@ class Project(models.Model):
     groupName = models.CharField(max_length=30, null=False)
     members = models.TextField( null=False) # 프로젝트 멤버 (과 + 이름 + \n)
     description = models.TextField(null=False)  # 프로젝트 설명
-    pdf = models.TextField()    # PDF 파일 경로
-    # pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    image = models.TextField()    # Image 파일 경로
     video = models.TextField()  # Video 파일 경로
-    # video = models.FileField(upload_to='videos/', null=True)
     likeCount = models.IntegerField(default=0)  # 좋아요 수
 
 class Like(models.Model):
