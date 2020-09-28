@@ -26,15 +26,15 @@ def hotprojects(req):
 # 02분반 프로젝트 조회
 # query : page, sortBy
 def lectures(req, lecture_id):
-    page = req.GET.get('page')
+    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
     sortBy = req.GET.get('sortBy')
     # TODO : pagination 추가
     if sortBy == 'likes':
-        projects = Project.objects.filter(lecture=lecture_id).order_by('-likeCount')
+        projects = Project.objects.filter(lecture=lecture_id).order_by('-likeCount')[(page-1)*10:page*10]
         project_list = serializers.serialize('json', projects)
         return HttpResponse(project_list, content_type="text/json")
     else:
-        projects = Project.objects.filter(lecture=lecture_id)
+        projects = Project.objects.filter(lecture=lecture_id)[(page-1)*10:page*10]
         project_list = serializers.serialize('json', projects)
         return HttpResponse(project_list, content_type="text/json")
 
