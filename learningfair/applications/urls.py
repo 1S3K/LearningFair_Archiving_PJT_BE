@@ -4,7 +4,6 @@ from . import views
 app_name = 'applications'
 
 urlpatterns = [
-    path("test/", views.test, name='test'), # 테스트 라우팅
     path('hotprojects', views.hotprojects, name='hotprojects'),
     path('lectures/<lecture_id>/projects', views.lectures, name='lecture_projects'),
     path('projects', views.projects, name='projects'),
