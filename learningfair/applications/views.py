@@ -1,7 +1,15 @@
 from django.shortcuts import render
+from django.core import serializers
 from django.http import JsonResponse
+from django.http import HttpResponse
+from .models import Project
 
-# Create your views here.
+# json response 테스트 view
+def test(req):
+    projects = Project.objects.filter()
+    project_list = serializers.serialize('json', projects)
+    return HttpResponse(project_list, content_type="text/json")
+
 
 def hotprojects(req):
     # db에서 찾기
