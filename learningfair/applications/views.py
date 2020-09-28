@@ -4,8 +4,9 @@ from django.http import JsonResponse
 # Create your views here.
 
 # /hotprojcets
+# 인기플젝 3개 조회
 def hotprojects(req):
-    # db에서 찾기
+    # TODO : db에서 좋아요 많은 플젝 3개 찾기
     data = {
         '1':{
             'title':'인기많은플젝',
@@ -49,11 +50,21 @@ def hotprojects(req):
     }
     return JsonResponse(data)
 
-# /classes/02/projects
-def lectures(req):
-    #req.GET['lecture']
-    pass
+# /lectures/02/projects
+# 02분반 프로젝트 조회
 
+# TODO : 쿼리스트링 : page, sortBy=likes
+def lectures(req, lecture_id):
+    page = req.GET.get('page')
+    sortBy = req.GET.get('sortBy')
+    data = {
+        'lecture_id': lecture_id,
+        'page':page,
+        'sortBy':sortBy,
+    }
+    return JsonResponse(data)
+
+# /projects
 def projects(req):
     pass
 
