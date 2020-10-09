@@ -16,3 +16,6 @@
 | STYLE | 코드 포맷팅 |
 | REFACTOR | 코드 리팩토링 |
 | CHORE | 빌드 및 패키지 수정 |
+
+### 종속성 관리
+<code>pip install -r requirements.txt</code>
