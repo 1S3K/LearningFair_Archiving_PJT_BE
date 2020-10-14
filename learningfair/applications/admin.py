@@ -4,7 +4,7 @@ from .models import User, Project, Like, Notice
 # admin customizing
 @admin.register(User) # decorator 형태로 등록
 class StoryAdmin(admin.ModelAdmin):
-	list_display = ['studentId', 'name']
+	list_display = ['date', 'major', 'studentId', 'name', 'comment']
 
 @admin.register(Project)
 class StoryAdmin(admin.ModelAdmin):
