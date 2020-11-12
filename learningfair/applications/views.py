@@ -5,19 +5,16 @@ from datetime import date
 from .models import Project, Notice, Like
 
 insa = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13']
-jagwa = ['41', '42', '43', '44']
-icam = ['i1', 'i2']
+jagwa = ['41', '42', '43', '44', 'i1', 'i2']
 
 # GET /hotprojcets
 # 각 캠퍼스별로 인기플젝 3개 조회
 def hotprojects(req):
     insa_projects = Project.objects.filter(lecture__in=insa).order_by('-likeCount')[:3]
     jagwa_projects = Project.objects.filter(lecture__in=jagwa).order_by('-likeCount')[:3]
-    icam_projects = Project.objects.filter(lecture__in=icam).order_by('-likeCount')[:3]
     insa_project_list = serializers.serialize('json', insa_projects)
     jagwa_project_list = serializers.serialize('json', jagwa_projects)
-    icam_project_list = serializers.serialize('json', icam_projects)
-    project_list = insa_project_list + jagwa_project_list + icam_project_list
+    project_list = insa_project_list + jagwa_project_list
     return HttpResponse(project_list, content_type="text/json")
 
 # GET /lectures/02/projects
