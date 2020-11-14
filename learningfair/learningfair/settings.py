@@ -84,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'lfdb',
-        'USER': 'root',
+        'USER': 'admin',
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': 'db-lf.czsbli9igcss.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
