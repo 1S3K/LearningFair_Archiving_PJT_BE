@@ -11,7 +11,7 @@ class User(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=30, null=False) # 프로젝트 제목
     lecture = models.CharField(max_length=3, null=False) # 분반
-    group = models.IntegerField(null=False) # 분반 내 각 팀
+    group = models.CharField(max_length=3, null=False) # 분반 내 각 팀
     groupName = models.CharField(max_length=30, null=False)
     members = models.TextField(null=False) # 프로젝트 멤버 (과 + 이름 + \n)
     description = models.TextField(null=False)  # 프로젝트 설명

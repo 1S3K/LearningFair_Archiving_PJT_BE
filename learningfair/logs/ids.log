@@ -15,3 +15,50 @@ Not Found: /
 "GET /login/2016312924 HTTP/1.1" 200 81
 2016312924
 "GET /login/2016312924 HTTP/1.1" 200 81
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3039
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 2491
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 5609
+"GET /admin/applications/like/ HTTP/1.1" 200 6542
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /admin/ HTTP/1.1" 200 5609
+"GET /admin/applications/project/ HTTP/1.1" 200 6563
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /admin/applications/project/add/ HTTP/1.1" 200 11396
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"POST /admin/applications/project/add/ HTTP/1.1" 302 0
+"GET /admin/applications/project/ HTTP/1.1" 200 11561
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /admin/ HTTP/1.1" 200 6541
+Internal Server Error: /lectures/1/projects
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
+    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+"GET /lectures/1/projects HTTP/1.1" 500 68109
+Internal Server Error: /lectures/01/projects
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
+    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+"GET /lectures/01/projects HTTP/1.1" 500 68121
+"GET /admin/applications/project/4/change/ HTTP/1.1" 200 11959
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"POST /admin/applications/project/4/change/ HTTP/1.1" 302 0
+"GET /admin/applications/project/ HTTP/1.1" 200 11561
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11700
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\models.py changed, reloading.
+Watching for file changes with StatReloader
