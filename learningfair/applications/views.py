@@ -3,7 +3,11 @@ from django.core import serializers
 from django.http import JsonResponse, HttpResponse
 from datetime import date
 from .models import Project, Notice, Like
+import logging
+import time
 
+
+logger = logging.getLogger('django')
 insa = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13']
 jagwa = ['41', '42', '43', '44', 'i1', 'i2']
 
@@ -63,3 +67,9 @@ def project_likes(req, project_id):
         return JsonResponse({'status':f'{project_id} 좋아요삭제 성공'})
     else:
         return JsonResponse({'status':'유효하지 않은 접근'})
+
+# GET? POST? 둘 중 하나 고르자 /login
+def login(req, student_id):
+    # TODO : 로그파일에 기록 남기기
+    logger.info(student_id)
+    return JsonResponse({'status':f"{student_id} 학생 로그남기기 성공"}, status=200)

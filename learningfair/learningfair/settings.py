@@ -20,7 +20,6 @@ environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -31,7 +30,6 @@ SECRET_KEY = 'o*ef8tc%ah(-vcf=-8y3&j#c1ohs2jjy$h-#h$%g$x2c2e!4@!'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
-
 
 # Application definition
 
@@ -76,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learningfair.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -109,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -122,7 +118,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -137,10 +132,34 @@ AWS_ACCESS_KEY_ID = env('ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('ACCESS_SECRET_KEY')
 AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = env('BUCKET_NAME')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME,AWS_REGION)
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 1024000000 # value in bytes 1GB here
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1024000000  # value in bytes 1GB here
 FILE_UPLOAD_MAX_MEMORY_SIZE = 1024000000
 
 DEFAULT_FILE_STORAGE = 'applications.storages.S3DefaultStorage'
 STATICFILES_STORAGE = 'applications.storages.S3StaticStorage'
+
+# 로깅
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': './logs/ids.log'
+        }
+    },
+    'formatter': {
+        'simpleRe': {
+            'format': '{asctime} {message}',
+            'style': '{',
+        }
+    }
+}

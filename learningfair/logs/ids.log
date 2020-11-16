@@ -1,0 +1,17 @@
+Watching for file changes with StatReloader
+"GET /login/2013 HTTP/1.1" 200 75
+"GET /login/2013 HTTP/1.1" 200 75
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/learningfair/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/2013 HTTP/1.1" 200 75
+"GET /login/2013 HTTP/1.1" 200 75
+"GET /login/2013 HTTP/1.1" 200 75
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 3039
+2016312924
+"GET /login/2016312924 HTTP/1.1" 200 81
+2016312924
+"GET /login/2016312924 HTTP/1.1" 200 81
+2016312924
+"GET /login/2016312924 HTTP/1.1" 200 81
