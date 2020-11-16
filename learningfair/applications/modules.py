@@ -19,7 +19,9 @@ resMessage = {
     'ONLY_ADMIN_PERMISSION': "접근하실 수 없습니다.",
     'UNSUPPORTED_TYPE': "지원하지 않는 파일 형식입니다.",
     'DB_ERROR': "DB 오류",
-    'BAD_REQUEST': "잘못된 접근 방식입니다."
+    'BAD_REQUEST': "잘못된 접근 방식입니다.",
+    'LIKE_SUCCESS':'좋아요 생성 성공',
+    'LIKE_CANCEL_SUCCESS':'좋아요 취소 성공',
 }
 
 def success(status, message, data):
