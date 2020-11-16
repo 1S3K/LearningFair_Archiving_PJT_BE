@@ -184,3 +184,16 @@ Watching for file changes with StatReloader
 /Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
 Watching for file changes with StatReloader
 "GET /hotprojects HTTP/1.1" 200 1020
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1020
+Forbidden (CSRF cookie not set.): /hotprojects
+"POST /hotprojects HTTP/1.1" 403 2994
+Forbidden (CSRF cookie not set.): /hotprojects
+"DELETE /hotprojects HTTP/1.1" 403 2994
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Bad Request: /hotprojects
+"DELETE /hotprojects HTTP/1.1" 400 111
+Bad Request: /hotprojects
+"POST /hotprojects HTTP/1.1" 400 111
+"GET /hotprojects HTTP/1.1" 200 1020

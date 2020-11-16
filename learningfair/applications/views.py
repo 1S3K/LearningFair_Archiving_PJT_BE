@@ -3,6 +3,7 @@ from django.core import serializers
 from django.http import JsonResponse, HttpResponse
 
 from .modules import resMessage, statusCode, success, fail
+from django.views.decorators.csrf import csrf_exempt
 
 from datetime import date
 from .models import Project, Notice, Like
@@ -18,16 +19,25 @@ jagwa = ['41', '42', '43', '44', 'i1', 'i2']
 
 # GET /hotprojcets
 # 각 캠퍼스별로 인기플젝 3개 조회
+@csrf_exempt
 def hotprojects(req):
-    insa_projects = Project.objects.filter(lecture__in=insa).order_by('-likeCount')[:3]
-    jagwa_projects = Project.objects.filter(lecture__in=jagwa).order_by('-likeCount')[:3]
+    if req.method != 'GET':
+        return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
 
-    data = {
-        'insa':list(insa_projects.values()),
-        'jagwa':list(jagwa_projects.values())
-    }
+    try:
+        insa_projects = Project.objects.filter(lecture__in=insa).order_by('-likeCount')[:3]
+        jagwa_projects = Project.objects.filter(lecture__in=jagwa).order_by('-likeCount')[:3]
 
-    return JsonResponse(success(statusCode['OK'], resMessage['SUCCESS'], data))
+        data = {
+            'insa':list(insa_projects.values()),
+            'jagwa':list(jagwa_projects.values())
+        }
+
+        return JsonResponse(success(statusCode['OK'], resMessage['SUCCESS'], data))
+    except Exception as err:
+        print('hotprojects ERROR : ' + err)
+        return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']))
+
 
 # GET /lectures/02/projects
 # 02분반 프로젝트 조회
