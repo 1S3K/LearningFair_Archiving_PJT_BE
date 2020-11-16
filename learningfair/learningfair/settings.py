@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'applications.apps.ApplicationsConfig',
     'storages',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,25 @@ LOGGING = {
         }
     }
 }
+
+# LOGGING = {
+#     'version':1,
+#     'formatters': {
+#         'timestamp': {
+#             'format': '{asctime} {levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'timestamp',
+#             'filename':'./logs/ids.log'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#         },
+#     },
+# }

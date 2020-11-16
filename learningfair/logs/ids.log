@@ -1,101 +1,186 @@
 Watching for file changes with StatReloader
-"GET /login/2013 HTTP/1.1" 200 75
-"GET /login/2013 HTTP/1.1" 200 75
-/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/learningfair/settings.py changed, reloading.
-Watching for file changes with StatReloader
-"GET /login/2013 HTTP/1.1" 200 75
-"GET /login/2013 HTTP/1.1" 200 75
-"GET /login/2013 HTTP/1.1" 200 75
-Watching for file changes with StatReloader
-Not Found: /
-"GET / HTTP/1.1" 404 3039
-2016312924
-"GET /login/2016312924 HTTP/1.1" 200 81
-2016312924
-"GET /login/2016312924 HTTP/1.1" 200 81
-2016312924
-"GET /login/2016312924 HTTP/1.1" 200 81
-Watching for file changes with StatReloader
-Not Found: /
-"GET / HTTP/1.1" 404 3039
-"GET /admin/ HTTP/1.1" 302 0
-"GET /admin/login/?next=/admin/ HTTP/1.1" 200 2491
-"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
-"GET /admin/ HTTP/1.1" 200 5609
-"GET /admin/applications/like/ HTTP/1.1" 200 6542
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /admin/ HTTP/1.1" 200 5609
-"GET /admin/applications/project/ HTTP/1.1" 200 6563
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /admin/applications/project/add/ HTTP/1.1" 200 11396
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"POST /admin/applications/project/add/ HTTP/1.1" 302 0
-"GET /admin/applications/project/ HTTP/1.1" 200 11561
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /admin/ HTTP/1.1" 200 6541
-Internal Server Error: /lectures/1/projects
+Internal Server Error: /hotprojects
 Traceback (most recent call last):
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
-    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-"GET /lectures/1/projects HTTP/1.1" 500 68109
-Internal Server Error: /lectures/01/projects
-Traceback (most recent call last):
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
-    response = get_response(request)
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
-    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-"GET /lectures/01/projects HTTP/1.1" 500 68121
-"GET /admin/applications/project/4/change/ HTTP/1.1" 200 11959
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"POST /admin/applications/project/4/change/ HTTP/1.1" 302 0
-"GET /admin/applications/project/ HTTP/1.1" 200 11561
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11700
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\models.py changed, reloading.
-Watching for file changes with StatReloader
-Watching for file changes with StatReloader
-"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11700
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 200 12056
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"POST /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 302 0
-"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11929
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-Internal Server Error: /lectures/01/projects
-Traceback (most recent call last):
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
-    response = get_response(request)
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
-    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-"GET /lectures/01/projects HTTP/1.1" 500 68258
-Internal Server Error: /lectures/01/projects
-Traceback (most recent call last):
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
-    response = get_response(request)
-  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
-    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-"GET /lectures/01/projects HTTP/1.1" 500 68258
-"GET /lectures/01/projects?page=1 HTTP/1.1" 200 490
-"GET /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 200 12057
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"POST /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 302 0
-"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11926
-"GET /admin/jsi18n/ HTTP/1.1" 200 8314
-"GET /lectures/01/projects?page=1 HTTP/1.1" 200 484
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 25, in hotprojects
+    return JsonResponse(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/http/response.py", line 560, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+"GET /hotprojects HTTP/1.1" 500 76053
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 3090
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1439
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1057
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1055
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1055
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 9
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 27, in hotprojects
+    return JsonResponse(json.dumps(result))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/http/response.py", line 560, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+"GET /hotprojects HTTP/1.1" 500 73617
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1470
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 9
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 28, in hotprojects
+    return JsonResponse(insa_project_list.data)
+AttributeError: 'str' object has no attribute 'data'
+"GET /hotprojects HTTP/1.1" 500 66214
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 202, in _get_response
+    response = response.render()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/rest_framework/response.py", line 55, in rendered_content
+    assert renderer, ".accepted_renderer not set on Response"
+AssertionError: .accepted_renderer not set on Response
+"GET /hotprojects HTTP/1.1" 500 65683
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 202, in _get_response
+    response = response.render()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/rest_framework/response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/rest_framework/renderers.py", line 723, in render
+    template = loader.get_template(self.template)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/api.html
+"GET /hotprojects HTTP/1.1" 500 79253
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 202, in _get_response
+    response = response.render()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/rest_framework/response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/rest_framework/renderers.py", line 723, in render
+    template = loader.get_template(self.template)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/api.html
+"GET /hotprojects HTTP/1.1" 500 79253
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1057
+"GET /hotprojects HTTP/1.1" 200 1057
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1057
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/learningfair/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 933
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 28, in hotprojects
+    return JsonResponse(success(statusCode.OK, resMessage.OK, data))
+AttributeError: 'dict' object has no attribute 'OK'
+"GET /hotprojects HTTP/1.1" 500 63622
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 28, in hotprojects
+    return JsonResponse(success(statusCode['OK'], resMessage['OK'], data))
+KeyError: 'OK'
+"GET /hotprojects HTTP/1.1" 500 63462
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /hotprojects
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py", line 28, in hotprojects
+    return JsonResponse(success(statusCode['SUCCESS'], resMessage['OK'], data))
+KeyError: 'SUCCESS'
+"GET /hotprojects HTTP/1.1" 500 63492
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1010
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /hotprojects HTTP/1.1" 200 1020
