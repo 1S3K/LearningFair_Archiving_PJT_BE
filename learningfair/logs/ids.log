@@ -62,3 +62,40 @@ TypeError: int() argument must be a string, a bytes-like object or a number, not
 "GET /admin/jsi18n/ HTTP/1.1" 200 8314
 C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\models.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11700
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 200 12056
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"POST /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 302 0
+"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11929
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+Internal Server Error: /lectures/01/projects
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
+    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+"GET /lectures/01/projects HTTP/1.1" 500 68258
+Internal Server Error: /lectures/01/projects
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\DELL\Desktop\SSEN_Learningfair\LearningFair_Archiving_PJT_BE\learningfair\applications\views.py", line 28, in lectures
+    page = int(req.GET.get('page')) # 1 2 3 4 -> 0~9 10~19 20~29 30~39
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+"GET /lectures/01/projects HTTP/1.1" 500 68258
+"GET /lectures/01/projects?page=1 HTTP/1.1" 200 490
+"GET /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 200 12057
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"POST /admin/applications/project/4/change/?_changelist_filters=o%3D3 HTTP/1.1" 302 0
+"GET /admin/applications/project/?o=3 HTTP/1.1" 200 11926
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+"GET /lectures/01/projects?page=1 HTTP/1.1" 200 484
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3090

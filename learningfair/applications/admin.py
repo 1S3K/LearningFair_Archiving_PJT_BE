@@ -8,7 +8,7 @@ class StoryAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class StoryAdmin(admin.ModelAdmin):
-	list_display = ['title', 'lecture', 'group', 'groupName', 'members', 'description', 'image', 'video', 'likeCount']
+	list_display = ['title', 'lecture', 'group', 'groupName', 'members', 'description', 'pdf', 'video', 'likeCount']
 
 @admin.register(Like)
 class StoryAdmin(admin.ModelAdmin):
