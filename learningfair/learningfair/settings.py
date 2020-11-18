@@ -142,6 +142,6 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 1024000000
 DEFAULT_FILE_STORAGE = 'applications.storages.S3DefaultStorage'
 STATICFILES_STORAGE = 'applications.storages.S3StaticStorage'
 
-
-CORS_ORIGIN_WHITELIST = ['*']
+# CORS 관련 설정
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
