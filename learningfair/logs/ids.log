@@ -871,3 +871,14 @@ Watching for file changes with StatReloader
 "GET /projects?searchBy=merong HTTP/1.1" 200 410
 "GET /notices HTTP/1.1" 200 282
 "POST /login HTTP/1.1" 201 286
+Watching for file changes with StatReloader
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 200 8064
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3094
+"GET /admin/applications/user/ HTTP/1.1" 200 14058
+"GET /admin/jsi18n/ HTTP/1.1" 200 8314
+/Users/brian/Documents/coding/LearningFair_Archiving_PJT_BE/learningfair/applications/views.py changed, reloading.
+Watching for file changes with StatReloader

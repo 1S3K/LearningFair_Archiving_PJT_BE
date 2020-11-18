@@ -95,29 +95,39 @@ def notices(req):
 # body엔 userInfo가 들어감.
 @csrf_exempt
 def project_likes(req, lecture_id, group_id):
-    if req.method == 'POST':
-        project = Project.objects.get(lecture=lecture_id, group=group_id)
-        project.likeCount += 1
-        project.save()
-        data = model_to_dict(project)
-        return JsonResponse(success(statusCode['OK'], resMessage['LIKE_SUCCESS'], data), status=statusCode['OK'])
-    elif req.method == 'DELETE':
-        project = Project.objects.get(lecture=lecture_id, group=group_id)
-        project.likeCount -= 1
-        project.save()
-        data = model_to_dict(project)
-        return JsonResponse(success(statusCode['OK'], resMessage['LIKE_CANCEL_SUCCESS'], data), status=statusCode['OK'])
-    else:
-        return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
+    try:
+        if req.method == 'POST':
+            project = Project.objects.get(lecture=lecture_id, group=group_id)
+            project.likeCount += 1
+            project.save()
+            data = model_to_dict(project)
+            return JsonResponse(success(statusCode['OK'], resMessage['LIKE_SUCCESS'], data), status=statusCode['OK'])
+        elif req.method == 'DELETE':
+            project = Project.objects.get(lecture=lecture_id, group=group_id)
+            project.likeCount -= 1
+            project.save()
+            data = model_to_dict(project)
+            return JsonResponse(success(statusCode['OK'], resMessage['LIKE_CANCEL_SUCCESS'], data), status=statusCode['OK'])
+        else:
+            return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
+    except Exception as err:
+        print('project_likes ERROR : ' + err)
+        return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']), status=statusCode['DB_ERROR'])
 
 
 # POST /login
 @csrf_exempt
 def login(req):
-    info = json.loads(req.body)
-    new_user = User(studentId=info['studentId'], name=info['name'], comment=info['comment'], major=info['major'])
-    new_user.save()
-    return JsonResponse(success(statusCode['CREATED'], resMessage['SUCCESS'], model_to_dict(new_user)), status=statusCode['CREATED'])
+    if req.method != 'POST':
+        return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
+    try:
+        info = json.loads(req.body)
+        new_user = User(studentId=info['studentId'], name=info['name'], comment=info['comment'], major=info['major'])
+        new_user.save()
+        return JsonResponse(success(statusCode['CREATED'], resMessage['SUCCESS'], model_to_dict(new_user)), status=statusCode['CREATED'])
+    except Exception as err:
+        print('project_likes ERROR : ' + err)
+        return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']), status=statusCode['DB_ERROR'])  
 
 '''
 <로그인 방식 둘 중에 어떤거 택할것인가>

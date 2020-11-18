@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'o*ef8tc%ah(-vcf=-8y3&j#c1ohs2jjy$h-#h$%g$x2c2e!4@!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -140,48 +140,4 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 1024000000
 DEFAULT_FILE_STORAGE = 'applications.storages.S3DefaultStorage'
 STATICFILES_STORAGE = 'applications.storages.S3StaticStorage'
 
-# 로깅
-LOGGING = {
-    'version': 1,
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'INFO'
-        }
-    },
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': './logs/ids.log'
-        }
-    },
-    'formatter': {
-        'simpleRe': {
-            'format': '{asctime} {message}',
-            'style': '{',
-        }
-    }
-}
 
-# LOGGING = {
-#     'version':1,
-#     'formatters': {
-#         'timestamp': {
-#             'format': '{asctime} {levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'timestamp',
-#             'filename':'./logs/ids.log'
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['console'],
-#         },
-#     },
-# }
