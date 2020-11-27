@@ -37,22 +37,29 @@ def hotprojects(req):
 
 # GET /lectures/02/projects
 # 02분반 프로젝트 조회
+# GET /lectures/02/projects?page=1일 경우 첫페이지만 조회. page 쿼리스트링 없을 경우 전체조회.
 @csrf_exempt
 def lectures(req, lecture_id):
     if req.method != 'GET':
         return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
     
     try:
+        page = req.GET.get('page')
         projects = Project.objects.filter(lecture=lecture_id).order_by('group')
+        if page:
+            page = int(page)
+            projects = projects[(page-1)*10: page*10]
         data = list(projects.values())
         return JsonResponse(success(statusCode['OK'], resMessage['SUCCESS'], data), status=statusCode['OK'])
     except Exception as err:
-        print('lectures ERROR : ' + err)
+        print('<lectures ERROR>')
+        print(err)
         return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']), status=statusCode['DB_ERROR'])
 
 
 # GET /projects?searchBy='머신러닝'
 # 프로젝트 전체에서 '머신러닝' 검색결과 조회
+# GET /projects?searchBy='머신러닝'&page=1일 경우 첫페이지만 조회. page 쿼리스트링 없을 경우 전체조회.
 @csrf_exempt
 def projects(req):
     if req.method != 'GET':
@@ -61,7 +68,12 @@ def projects(req):
     searchBy = req.GET.get('searchBy')
     try:
         if searchBy:
-            projects = Project.objects.filter(title__contains=searchBy).order_by('group')
+            projects = Project.objects.filter(title__contains=searchBy).order_by('lecture', 'group')
+            page = req.GET.get('page')
+            if page:
+                page = int(page)
+                projects = projects[(page-1)*10: page*10]
+
             data = list(projects.values())
         else:
             data = []
