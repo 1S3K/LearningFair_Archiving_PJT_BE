@@ -44,6 +44,12 @@ def lectures(req, lecture_id):
     
     try:
         projects = Project.objects.filter(lecture=lecture_id).order_by('group')
+        userinfo = json.loads(req.body)
+        user = User.objects.filter(studentId=userinfo['studentId'], name=userinfo['name']).last()
+        
+        if not user:
+            return JsonResponse(fail(statusCode['BAD_REQUEST'], "해당 유저가 존재하지 않습니다."), status=statusCode['BAD_REQUEST'])
+        # TODO : liked 값까지 반환 -> user의 모든 likes를 끌어와, 해당 분반 프로젝트가 있는지 조회하고 like=true / false 쇽 넣어주기
         data = list(projects.values())
         return JsonResponse(success(statusCode['OK'], resMessage['SUCCESS'], data), status=statusCode['OK'])
     except Exception as err:
@@ -90,26 +96,47 @@ def notices(req):
         return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']), status=statusCode['DB_ERROR'])
 
 
-# POST /lectures/02/projects/02/like
-# DELETE /lectures/02/projects/02/like
-# body엔 userInfo가 들어감.
+# POST /lectures/02/groups/02/like : 02분반 02조 프로젝트 좋아요
+# PATCH /lectures/02/groups/02/like : 02분반 02조 프로젝트 좋아요 취소
+# body : {"studentId":"2016312924", "name":"강준우"}
+'''
+좋아요 현 문제 : 좋아요 새로고침 좋아요 쌉ㄱㄴ
+개선방향 : 학번과 이름을 넘겨주면 그걸로 맨 마지막 유저를 찾아서 판단.
+'''
 @csrf_exempt
 def project_likes(req, lecture_id, group_id):
     try:
-        if req.method == 'POST':
-            project = Project.objects.get(lecture=lecture_id, group=group_id)
-            project.likeCount += 1
-            project.save()
-            data = model_to_dict(project)
-            return JsonResponse(success(statusCode['OK'], resMessage['LIKE_SUCCESS'], data), status=statusCode['OK'])
-        elif req.method == 'DELETE':
-            project = Project.objects.get(lecture=lecture_id, group=group_id)
-            project.likeCount -= 1
-            project.save()
-            data = model_to_dict(project)
-            return JsonResponse(success(statusCode['OK'], resMessage['LIKE_CANCEL_SUCCESS'], data), status=statusCode['OK'])
-        else:
-            return JsonResponse(fail(statusCode['BAD_REQUEST'], resMessage['BAD_REQUEST']), status=statusCode['BAD_REQUEST'])
+        userinfo = json.loads(req.body)
+        user = User.objects.filter(studentId=userinfo['studentId'], name=userinfo['name']).last()
+        
+        if not user:
+            return JsonResponse(fail(statusCode['BAD_REQUEST'], "해당 유저가 존재하지 않습니다."), status=statusCode['BAD_REQUEST'])
+        project = Project.objects.get(lecture=lecture_id, group=group_id)
+        #user.id랑 project.id로 고고
+
+        if req.method == 'POST': # 좋아요 생성이므로 존재하지 않을 경우에 처리되어야 함.
+            try: # 좋아요가 존재할 경우 -> 에러 반환
+                like = Like.objects.get(userId=user.id, projectId=project.id)
+                return JsonResponse(fail(statusCode['BAD_REQUEST'], "좋아요가 이미 존재합니다."), status=statusCode['BAD_REQUEST'])
+            except Exception as err: # 좋아요가 존재하지 않을 경우 -> 좋아요 로직 고고
+                project.likeCount += 1
+                project.save()
+                like = Like(userId=user.id, projectId=project.id)
+                like.save()
+                data = model_to_dict(project)
+                return JsonResponse(success(statusCode['OK'], resMessage['LIKE_SUCCESS'], data), status=statusCode['OK'])
+            
+        if req.method == 'PATCH': # 좋아요 생성이므로 존재하지 않을 경우에 처리되어야 함.
+            try: # 좋아요가 존재할 경우 -> 에러 반환
+                like = Like.objects.get(userId=user.id, projectId=project.id)
+                project.likeCount -= 1
+                project.save()
+                like.delete()
+                data = model_to_dict(project)
+                return JsonResponse(success(statusCode['OK'], "좋아요 삭제 성공", data), status=statusCode['OK'])
+            except Exception as err: # 좋아요가 존재하지 않을 경우 -> 좋아요 로직 고고
+                return JsonResponse(fail(statusCode['BAD_REQUEST'], "좋아요가 존재하지 않아 좋아요 취소가 불가합니다."), status=statusCode['BAD_REQUEST'])
+                
     except Exception as err:
         print('project_likes ERROR : ' + err)
         return JsonResponse(fail(statusCode['DB_ERROR'], resMessage['DB_ERROR']), status=statusCode['DB_ERROR'])
