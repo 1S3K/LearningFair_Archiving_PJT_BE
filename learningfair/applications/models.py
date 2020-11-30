@@ -12,7 +12,7 @@ class Project(models.Model):
     title = models.CharField(max_length=30, null=False) # 프로젝트 제목
     lecture = models.CharField(max_length=3, null=False) # 분반
     group = models.CharField(max_length=3, null=False) # 분반 내 각 팀
-    groupName = models.CharField(max_length=30, null=True)
+    groupName = models.CharField(max_length=30, null=True) # 팀명
     members = models.TextField(null=False) # 프로젝트 멤버 (과 + 이름 + \n)
     description = models.TextField(null=True)  # 프로젝트 설명
     pdf = models.TextField()    # pdf 파일 경로
